@@ -1,0 +1,68 @@
+/*!*********************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/scss/header/style.scss ***!
+  \*********************************************************************************************************************/
+/* Header (begin) */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #111;
+  transition: background-color 0.3s ease;
+}
+.header--scrolled {
+  background-color: rgba(17, 17, 17, 0.8);
+  backdrop-filter: blur(8px);
+}
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.header__logo img {
+  height: 32px;
+}
+.header__payments {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.header__payments-label {
+  font-size: 0.85rem;
+  color: #fff;
+}
+.header__payments-list {
+  display: flex;
+  list-style: none;
+  gap: 0.4rem;
+}
+.header__payments-item img {
+  height: 20px;
+}
+.header__nav {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+.header__link {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+}
+.header__link:hover {
+  color: #aaa;
+}
+.header__cart-btn {
+  background: #9a4aff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.4rem 0.6rem;
+  cursor: pointer;
+}
+.header__cart-btn img {
+  height: 20px;
+}
+
+/* Header (end) */

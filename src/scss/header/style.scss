@@ -1,0 +1,78 @@
+//D:\enviromentDev\Proyects\node\22\TestGradiW\src\src\scss\header\style.scss
+
+/* Header (begin) */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: #111;
+    transition: background-color 0.3s ease;
+
+    &--scrolled {
+        background-color: rgba(17, 17, 17, 0.8); // transparencia activada al scroll
+    backdrop-filter: blur(8px); // patrón moderno con glass effect
+    }
+
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    &__logo img {
+        height: 32px;
+    }
+
+    &__payments {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        &-label {
+            font-size: 0.85rem;
+            color: #fff;
+        }
+
+        &-list {
+            display: flex;
+            list-style: none;
+            gap: 0.4rem;
+        }
+
+        &-item img {
+            height: 20px;
+        }
+    }
+
+    &__nav {
+        display: flex;
+        align-items: center;
+        gap: 1.2rem;
+    }
+
+    &__link {
+        color: #fff;
+        text-decoration: none;
+        font-weight: 500;
+
+        &:hover {
+            color: #aaa;
+        }
+    }
+
+    &__cart-btn {
+        background: #9a4aff;
+        border: none;
+        border-radius: 4px;
+        padding: 0.4rem 0.6rem;
+        cursor: pointer;
+
+        img {
+            height: 20px;
+        }
+    }
+}
+/* Header (end) */
