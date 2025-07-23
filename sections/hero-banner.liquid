@@ -26,26 +26,24 @@
         </div>
     </div>
 
-    <!-- Marquee section - Animated text bar at the bottom of hero -->
+    <!-- Hero Marquee Block - Independent scrolling banner section -->
     <div class="hero__marquee">
-        <!-- Marquee Container - Wrapper for scrolling animation
-             Handles overflow and establishes animation context -->
+        <!-- Marquee Wrapper - Handles overflow and positioning -->
         <div class="marquee">
-            <!-- Marquee Content - Inner wrapper for repeated items
-                 This element gets animated horizontally -->
+            <!-- Marquee Content - Direct child for animation
+                 Uses inline-flex for horizontal item alignment -->
             <div class="marquee__content">
-                <!-- Marquee Loop - Creates 8 text/separator pairs
-                     Ensures seamless infinite animation -->
+                <!-- Marquee Items Loop - 8 instances for seamless looping -->
                 {% for i in (1..8) %}
-                    <!-- Marquee Text Item - Main promotional message
-                         Styled with bold uppercase typography -->
+                    <!-- Marquee Text Element - Main display text
+                         Uses Squada One font at 7rem size -->
                     <span class="marquee__item">SHUFFLE ESSENTIALS</span>
 
-                    <!-- Marquee Separator - Visual divider between text items
-                         Contains decorative diamond star element -->
+                    <!-- Marquee Separator Container - Holds decorative element
+                         Adds spacing between text items -->
                     <div class="marquee__separator">
-                        <!-- Diamond Star - Decorative graphic element
-                             Pure CSS diamond shape with hover effects -->
+                        <!-- Diamond Icon - Pure CSS diamond shape
+                             Purple color (#a78bfa) with hover rotation -->
                         <div class="diamond-star"></div>
                     </div>
                 {% endfor %}

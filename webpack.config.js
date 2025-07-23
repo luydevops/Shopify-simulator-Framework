@@ -14,7 +14,9 @@ module.exports = {
     'js/footer/index': './src/js/footer/index.js',
     'css/top-bar/style': './src/scss/top-bar/style.scss',
     'css/hero-banner/style': './src/scss/hero-banner/style.scss',
-    // 'js/hero-banner/index': './src/js/hero-banner/index.js',
+    'js/hero-banner/index': './src/js/hero-banner/index.js',
+    'css/products/style': './src/scss/products/style.scss',
+    'js/products/index': './src/js/products/index.js',
   },
   output: {
     path: path.resolve(__dirname, 'public'),

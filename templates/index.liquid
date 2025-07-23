@@ -13,13 +13,19 @@
 </head>
 <body>
     {% include 'top-bar.liquid' %}
-    {% include 'header.liquid' %}
-    {% include 'hero-banner.liquid' %}
 
-    {% include 'featured-products.liquid' %}
+    <main class="container">
+        {% include 'header.liquid' %}
+        {% include 'hero-banner.liquid' %}
+        {% include 'products.liquid' %}
 
-    {% include 'footer.liquid' %}
+
+        {% include 'footer.liquid' %}
+    </main>
+
+
     <script src="/main.js"></script>
+    <script src="/js/hero-banner/index.js"></script>
     <script src="/js/header/index.js"></script>
     <script src="/js/footer/index.js"></script>
 </body>

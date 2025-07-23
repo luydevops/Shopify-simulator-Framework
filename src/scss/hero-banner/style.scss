@@ -5,7 +5,6 @@
 .hero {
   position: relative;
   width: 100%;
-  overflow: hidden;
   display: flex;
   flex-direction: column; /* Organiza los elementos en columna */
 
@@ -16,6 +15,7 @@
     height: 80vh;              /* Viewport-relative height */
     min-height: 500px;         /* Minimum height for smaller screens */
     max-height: 800px;         /* Maximum height for larger screens */
+    overflow: hidden;          /* MOVED HERE - Contains image overflow */
     display: flex;
     align-items: center;       /* Vertical centering */
     justify-content: center;   /* Horizontal centering */
@@ -42,17 +42,31 @@
     color: white;
   }
 
-  /* Element: Animated marquee at bottom
-     Now positioned below the hero container */
+  /* Element: Static marquee section
+     Now flows naturally below hero container */
   &__marquee {
     width: 100%;
-    padding: 1.5rem 0; /* Aumenté el padding para mejor visualización */
-    z-index: 3;
+    padding: 1.5rem 0;
+    z-index: 2;
     font-family: "Squada One", sans-serif;
     font-weight: 400;
     font-style: normal;
-    background: #7b2cfa; /* Color morado como en tu top-bar */
     color: white;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* Suave efecto ease-in-out */
+    max-height: 100px; /* Altura máxima cuando está visible */
+    overflow: hidden;
+  }
+
+  &--scrolled {
+    .hero__marquee {
+      opacity: 0;
+      transform: translateY(20px);
+      max-height: 0; /* Colapsa completamente */
+      padding-top: 0;
+      padding-bottom: 0;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
   }
 }
 
@@ -61,35 +75,35 @@
 .marquee {
   display: flex;
   overflow: hidden;
-  white-space: nowrap;
+  white-space: nowrap;          /* Prevents text wrapping */
 
+  /* Element: Content wrapper for animation
+     Contains repeated text items and separators */
   &__content {
     display: inline-flex;
     align-items: center;
-    animation: marquee 10s linear infinite; /* Reduje el tiempo para mejor visualización */
-    will-change: transform;
+    animation: marquee 30s linear infinite;
+    will-change: transform;     /* Optimizes animation performance */
   }
 
+  /* Element: Individual text items in marquee
+     Styling for promotional messages */
   &__item {
-    font-size: 3rem; /* Reduje el tamaño para que sea más manejable */
+    font-size: 7rem;
     font-weight: 500;
-    text-transform: uppercase;
+    text-transform: uppercase;  /* All caps text */
     margin: 0 2rem;
     color: white;
     letter-spacing: 1px;
-
-    /* Efecto de texto con borde */
-    text-shadow:
-            2px 2px 0 #000,
-            -1px -1px 0 #000,
-            1px -1px 0 #000,
-            -1px 1px 0 #000,
-            1px 1px 0 #000;
   }
 
+  /* Element: Decorative separator between text items
+     Uses diamond-star component */
   &__separator {
     margin: 0 1rem;
 
+    /* Element: Diamond star graphic
+       Pure CSS diamond shape */
     .diamond-star {
       width: 30px;
       height: 30px;
@@ -102,25 +116,41 @@
   }
 }
 
-/* Responsive adjustments */
+/* Animation: Marquee scroll effect
+   Creates continuous horizontal scrolling motion */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* hero-banner (end) */
+
+/* ==========================================================================
+RESPONSIVE: Hero Banner (max-width: 768px)
+Adjustments for tablet and mobile devices
+========================================================================== */
 @media (max-width: 768px) {
   .hero {
+    /* Element: Container adjustments for mobile */
     &__container {
       height: 60vh;
       min-height: 400px;
     }
 
+    /* Element: Marquee padding reduction */
     &__marquee {
       padding: 1rem 0;
     }
   }
 
+  /* Element: Marquee items smaller on mobile */
   .marquee {
     &__item {
       font-size: 1.5rem;
       margin: 0 1rem;
     }
 
+    /* Element: Diamond star smaller on mobile */
     &__separator .diamond-star {
       width: 20px;
       height: 20px;
