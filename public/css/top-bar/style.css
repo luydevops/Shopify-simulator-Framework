@@ -1,15 +1,16 @@
-/*!**********************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/scss/top-bar/style.scss ***!
-  \**********************************************************************************************************************/
+/*!*****************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[0].use[3]!./src/scss/top-bar/style.scss ***!
+  \*****************************************************************************************************************************************************************************************/
 @charset "UTF-8";
 /* top-bar (begin) */
 .top-bar {
-  background-color: #000;
+  background-color: #7b2cfa;
   color: #fff;
   padding: 8px 0;
   overflow: hidden;
   width: 100%;
   position: fixed;
+  z-index: 1000;
   /* Element: Marquee container
      Handles the horizontal scrolling animation */
   /* Element: Marquee content wrapper
@@ -19,25 +20,29 @@
   /* Element: Marquee icon
      Decorative dollar sign between messages */
 }
+
 .top-bar__marquee {
   display: flex;
   white-space: nowrap;
   will-change: transform;
   animation: marquee 13s linear infinite;
 }
+
 .top-bar__marquee-content {
   display: flex;
   align-items: center;
 }
+
 .top-bar__marquee-item {
   font-family: "Helvetica Neue", Arial, sans-serif;
   font-size: 12px;
-  font-weight: 500;
   letter-spacing: 0.5px;
   margin: 0 15px;
   text-transform: uppercase;
+  font-weight: 600;
   /* Modifier: Desktop font size */
 }
+
 @media (min-width: 768px) {
   .top-bar__marquee-item {
     font-size: 14px;
@@ -55,6 +60,7 @@
   /* Element: Main star shape */
   /* Hover effect - optional */
 }
+
 .star__shape {
   position: absolute;
   width: 100%;
@@ -68,6 +74,7 @@
   /* Optional animation for hover effect */
   transition: transform 0.3s ease;
 }
+
 .star:hover .star__shape {
   transform: rotate(135deg) scale(1.1);
 }
@@ -82,6 +89,7 @@
   margin: 0.1rem;
   /* Hover effect - optional */
 }
+
 .diamond-star:hover {
   transform: rotate(135deg) scale(1.1);
 }

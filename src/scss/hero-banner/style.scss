@@ -1,0 +1,129 @@
+//D:\enviromentDev\Proyects\node\22\TestGradiW\src\src\scss\hero-banner\style.scss
+/* hero-banner (begin) */
+@import url('https://fonts.googleapis.com/css2?family=Squada+One&display=swap');
+
+.hero {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column; /* Organiza los elementos en columna */
+
+  /* Element: Main container for hero content and image
+     Sets dimensions and centers content vertically */
+  &__container {
+    position: relative;
+    height: 80vh;              /* Viewport-relative height */
+    min-height: 500px;         /* Minimum height for smaller screens */
+    max-height: 800px;         /* Maximum height for larger screens */
+    display: flex;
+    align-items: center;       /* Vertical centering */
+    justify-content: center;   /* Horizontal centering */
+    flex-grow: 1;             /* Ocupa todo el espacio disponible */
+  }
+
+  /* Element: Responsive image container
+     Covers entire container and sits below content */
+  &__image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;         /* Ensures image covers area without distortion */
+    z-index: 1;                /* Base layer */
+  }
+
+  /* Element: Content overlay (text and button)
+     Positioned above the hero image */
+  &__content {
+    position: relative;
+    z-index: 2;                /* Above image layer */
+    text-align: center;
+    padding: 2rem;
+    color: white;
+  }
+
+  /* Element: Animated marquee at bottom
+     Now positioned below the hero container */
+  &__marquee {
+    width: 100%;
+    padding: 1.5rem 0; /* Aumenté el padding para mejor visualización */
+    z-index: 3;
+    font-family: "Squada One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    background: #7b2cfa; /* Color morado como en tu top-bar */
+    color: white;
+  }
+}
+
+/* BLOCK: Marquee - Scrolling text animation
+   ========================================================================== */
+.marquee {
+  display: flex;
+  overflow: hidden;
+  white-space: nowrap;
+
+  &__content {
+    display: inline-flex;
+    align-items: center;
+    animation: marquee 10s linear infinite; /* Reduje el tiempo para mejor visualización */
+    will-change: transform;
+  }
+
+  &__item {
+    font-size: 3rem; /* Reduje el tamaño para que sea más manejable */
+    font-weight: 500;
+    text-transform: uppercase;
+    margin: 0 2rem;
+    color: white;
+    letter-spacing: 1px;
+
+    /* Efecto de texto con borde */
+    text-shadow:
+            2px 2px 0 #000,
+            -1px -1px 0 #000,
+            1px -1px 0 #000,
+            -1px 1px 0 #000,
+            1px 1px 0 #000;
+  }
+
+  &__separator {
+    margin: 0 1rem;
+
+    .diamond-star {
+      width: 30px;
+      height: 30px;
+      background: #a78bfa;
+      clip-path: polygon(
+                      50% 0%, 65% 35%, 100% 50%, 65% 65%,
+                      50% 100%, 35% 65%, 0% 50%, 35% 35%
+      );
+    }
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero {
+    &__container {
+      height: 60vh;
+      min-height: 400px;
+    }
+
+    &__marquee {
+      padding: 1rem 0;
+    }
+  }
+
+  .marquee {
+    &__item {
+      font-size: 1.5rem;
+      margin: 0 1rem;
+    }
+
+    &__separator .diamond-star {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}

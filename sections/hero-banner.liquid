@@ -1,0 +1,55 @@
+{% comment %}D:\enviromentDev\Proyects\node\22\TestGradiW\src\sections\hero-banner.liquid{% endcomment %}
+<!-- Hero Banner Section - Main container for the hero banner component -->
+<section class="hero">
+    <!-- Hero container - Wrapper for image and content -->
+    <div class="hero__container">
+        <!-- Hero image with responsive sources - handles different screen sizes -->
+        {% if settings['hero-banner'].settings.background_image %}
+            <picture class="hero__image">
+                <!-- Large desktop image source -->
+                <source media="(min-width: 1200px)" srcset="{{ settings['hero-banner'].settings.background_image | img_url: '2000x' }}">
+                <!-- Tablet/medium desktop image source -->
+                <source media="(min-width: 768px)" srcset="{{ settings['hero-banner'].settings.background_image | img_url: '1200x' }}">
+                <!-- Mobile/default image -->
+                <img src="{{ settings['hero-banner'].settings.background_image | img_url: '800x' }}" alt="{{ settings['hero-banner'].settings.alt_image }}" class="hero__img">
+            </picture>
+        {% endif %}
+
+        <!-- Hero content - Contains title and CTA button -->
+        <div class="hero__content">
+            <!-- Main heading - Dynamically populated from settings -->
+            <h1 class="hero__title">{{ settings['hero-banner'].settings.background_image.marquee_text }}</h1>
+            <!-- Call-to-action button - URL and text from settings -->
+            <a href="{{ settings.hero_button_url }}" class="hero__button button--primary">
+                {{ settings.hero_button_text }}
+            </a>
+        </div>
+    </div>
+
+    <!-- Marquee section - Animated text bar at the bottom of hero -->
+    <div class="hero__marquee">
+        <!-- Marquee Container - Wrapper for scrolling animation
+             Handles overflow and establishes animation context -->
+        <div class="marquee">
+            <!-- Marquee Content - Inner wrapper for repeated items
+                 This element gets animated horizontally -->
+            <div class="marquee__content">
+                <!-- Marquee Loop - Creates 8 text/separator pairs
+                     Ensures seamless infinite animation -->
+                {% for i in (1..8) %}
+                    <!-- Marquee Text Item - Main promotional message
+                         Styled with bold uppercase typography -->
+                    <span class="marquee__item">SHUFFLE ESSENTIALS</span>
+
+                    <!-- Marquee Separator - Visual divider between text items
+                         Contains decorative diamond star element -->
+                    <div class="marquee__separator">
+                        <!-- Diamond Star - Decorative graphic element
+                             Pure CSS diamond shape with hover effects -->
+                        <div class="diamond-star"></div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>

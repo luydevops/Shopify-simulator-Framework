@@ -1,6 +1,6 @@
-/*!*********************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/scss/header/style.scss ***!
-  \*********************************************************************************************************************/
+/*!****************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[0].use[3]!./src/scss/header/style.scss ***!
+  \****************************************************************************************************************************************************************************************/
 @charset "UTF-8";
 /* Header (begin) */
 .header {
@@ -11,11 +11,13 @@
   transition: background-color 0.3s ease;
   -webkit-transition: background-color 0.3s ease, -webkit-backdrop-filter 0.3s ease;
 }
+
 .header--scrolled {
   background-color: rgba(17, 17, 17, 0.5);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 }
+
 .header__container {
   display: flex;
   justify-content: space-between;
@@ -24,9 +26,11 @@
   max-width: 1200px;
   margin: 0 auto;
 }
+
 .header__logo img {
   height: 50px;
 }
+
 .header__payments {
   display: flex;
   align-items: center;
@@ -37,19 +41,23 @@
   position: relative;
   top: -3px;
 }
+
 .header__payments-label {
   font-size: 0.85rem;
   color: #fff;
 }
+
 .header__payments-list {
   display: flex;
   list-style: none;
   gap: 0.4rem;
   margin: 8px 0px;
 }
+
 .header__payments-item img {
   height: 20px;
 }
+
 .header__nav {
   display: flex;
   align-items: center;
@@ -57,14 +65,17 @@
   top: -4px;
   position: relative;
 }
+
 .header__link {
   color: #fff;
   text-decoration: none;
   font-weight: 500;
 }
+
 .header__link:hover {
   color: #aaa;
 }
+
 .header__cart-btn {
   background: #9a4aff;
   border: none;
@@ -72,6 +83,7 @@
   padding: 0.4rem 0.6rem;
   cursor: pointer;
 }
+
 .header__cart-btn img {
   height: 20px;
 }

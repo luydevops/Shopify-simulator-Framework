@@ -13,7 +13,8 @@ module.exports = {
     'css/footer/style': './src/scss/footer/style.scss',
     'js/footer/index': './src/js/footer/index.js',
     'css/top-bar/style': './src/scss/top-bar/style.scss',
-    // 'js/top-bar/index': './src/js/top-bar/index.js',
+    'css/hero-banner/style': './src/scss/hero-banner/style.scss',
+    // 'js/hero-banner/index': './src/js/hero-banner/index.js',
   },
   output: {
     path: path.resolve(__dirname, 'public'),
