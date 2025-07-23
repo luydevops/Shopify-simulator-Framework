@@ -5,7 +5,7 @@
 /* Header (begin) */
 .header {
   position: sticky;
-  top: 0;
+  top: 39px;
   z-index: 1000;
   background-color: #232323;
   transition: background-color 0.3s ease;

@@ -29,6 +29,12 @@ module.exports = {
           MiniCssExtractPlugin.loader,
           'css-loader',
           'sass-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              implementation: require('sass-embedded'), // forzar uso de embedded
+            }
+          }
         ],
       },
       // Archivos CSS normales
@@ -40,13 +46,13 @@ module.exports = {
         ],
       },
       // Archivos de fuentes o íconos
-      {
-        test: /\.(woff(2)?|ttf|eot|svg|png|jpg|jpeg|gif)$/i,
-        type: 'asset/resource',
-        generator: {
-          filename: 'assets/[hash][ext][query]',
-        },
-      },
+      // {
+      //   test: /\.(woff(2)?|ttf|eot|svg|png|jpg|jpeg|gif)$/i,
+      //   type: 'asset/resource',
+      //   generator: {
+      //     filename: 'assets/[hash][ext][query]',
+      //   },
+      // },
     ],
   },
   plugins: [

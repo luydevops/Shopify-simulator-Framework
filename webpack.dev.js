@@ -41,13 +41,13 @@ module.exports = {
                 ],
             },
             // Archivos de fuentes o íconos
-            {
-                test: /\.(woff(2)?|ttf|eot|svg|png|jpg|jpeg|gif)$/i,
-                type: 'asset/resource',
-                generator: {
-                    filename: 'assets/[hash][ext][query]',
-                },
-            },
+            // {
+            //     test: /\.(woff(2)?|ttf|eot|svg|png|jpg|jpeg|gif)$/i,
+            //     type: 'asset/resource',
+            //     generator: {
+            //         filename: 'assets/[hash][ext][query]',
+            //     },
+            // },
         ],
     },
     plugins: [

@@ -9,6 +9,7 @@
   padding: 8px 0;
   overflow: hidden;
   width: 100%;
+  position: fixed;
   /* Element: Marquee container
      Handles the horizontal scrolling animation */
   /* Element: Marquee content wrapper
@@ -22,7 +23,7 @@
   display: flex;
   white-space: nowrap;
   will-change: transform;
-  animation: marquee 20s linear infinite;
+  animation: marquee 13s linear infinite;
 }
 .top-bar__marquee-content {
   display: flex;
@@ -47,15 +48,6 @@
   margin: 0 5px;
 }
 
-.diamond-star {
-  width: 60px;
-  height: 60px;
-  background: #a78bfa;
-  clip-path: polygon(50% 0%, 65% 35%, 100% 50%, 65% 65%, 50% 100%, 35% 65%, 0% 50%, 35% 35%);
-  transition: transform 0.3s;
-  margin: 2rem;
-}
-
 .star {
   position: relative;
   width: 48px;
@@ -78,9 +70,23 @@
 }
 .star:hover .star__shape {
   transform: rotate(135deg) scale(1.1);
-  background-color: rgb(204.0909090909, 187.8925619835, 252.1074380165);
 }
 
+/* diamond-star (begin) */
+.diamond-star {
+  width: 20px;
+  height: 20px;
+  background: #a78bfa;
+  clip-path: polygon(50% 0%, 65% 35%, 100% 50%, 65% 65%, 50% 100%, 35% 65%, 0% 50%, 35% 35%);
+  transition: transform 0.3s;
+  margin: 0.1rem;
+  /* Hover effect - optional */
+}
+.diamond-star:hover {
+  transform: rotate(135deg) scale(1.1);
+}
+
+/* diamond-star (end) */
 /* Animation: Marquee scroll effect
    Creates infinite horizontal scrolling */
 @keyframes marquee {

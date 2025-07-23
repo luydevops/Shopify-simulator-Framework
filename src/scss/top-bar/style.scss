@@ -1,11 +1,12 @@
 //D:\enviromentDev\Proyects\node\22\TestGradiW\src\src\scss\top-bar\style.scss
 /* top-bar (begin) */
 .top-bar {
-  background-color: #000;
+  background-color: #7b2cfa;
   color: #fff;
   padding: 8px 0;
   overflow: hidden;
   width: 100%;
+  position: fixed;
 
   /* Element: Marquee container
      Handles the horizontal scrolling animation */
@@ -13,7 +14,7 @@
     display: flex;
     white-space: nowrap;
     will-change: transform;
-    animation: marquee 20s linear infinite;
+    animation: marquee 13s linear infinite;
   }
 
   /* Element: Marquee content wrapper
@@ -45,24 +46,6 @@
     color: #ff0;
     margin: 0 5px;
   }
-}
-
-.diamond-star {
-  width: 60px;
-  height: 60px;
-  background: #a78bfa;
-  clip-path: polygon(
-                  50% 0%,   /* top point */
-                  65% 35%,  /* top-right */
-                  100% 50%, /* right */
-                  65% 65%,  /* bottom-right */
-                  50% 100%, /* bottom */
-                  35% 65%,  /* bottom-left */
-                  0% 50%,   /* left */
-                  35% 35%   /* top-left */
-  );
-  transition: transform 0.3s;
-  margin: 2rem;
 }
 
 .star {
@@ -97,9 +80,34 @@
   /* Hover effect - optional */
   &:hover &__shape {
     transform: rotate(135deg) scale(1.1);
-    background-color: lighten(#A78BFA, 10%);
   }
 }
+
+
+/* diamond-star (begin) */
+.diamond-star {
+  width: 20px;
+  height: 20px;
+  background: #a78bfa;
+  clip-path: polygon(
+                  50% 0%,   /* top point */
+                  65% 35%,  /* top-right */
+                  100% 50%, /* right */
+                  65% 65%,  /* bottom-right */
+                  50% 100%, /* bottom */
+                  35% 65%,  /* bottom-left */
+                  0% 50%,   /* left */
+                  35% 35%   /* top-left */
+  );
+  transition: transform 0.3s;
+  margin: 0.1rem;
+
+  /* Hover effect - optional */
+  &:hover {
+    transform: rotate(135deg) scale(1.1);
+  }
+}
+/* diamond-star (end) */
 
 /* Animation: Marquee scroll effect
    Creates infinite horizontal scrolling */
