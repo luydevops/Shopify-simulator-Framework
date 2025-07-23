@@ -1,0 +1,43 @@
+/* start icon cusmicer */
+.fa-ltc {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background-image: url('/assets/ltc-svgrepo-com.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  vertical-align: middle;
+
+  // para que escale como los otros íconos
+  font-size: inherit;
+}
+
+.fa-dai {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background-image: url('/assets/dai-svgrepo-com.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  vertical-align: middle;
+
+  // para que escale como los otros íconos
+  font-size: inherit;
+}
+
+.fa-usdc {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background-image: url('/assets/usdc-svgrepo-com.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  vertical-align: middle;
+
+  // para que escale como los otros íconos
+  font-size: inherit;
+}
+/* end icon cusmicer */

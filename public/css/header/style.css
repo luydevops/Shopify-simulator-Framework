@@ -1,17 +1,20 @@
 /*!*********************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/scss/header/style.scss ***!
   \*********************************************************************************************************************/
+@charset "UTF-8";
 /* Header (begin) */
 .header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background-color: #111;
+  background-color: #232323;
   transition: background-color 0.3s ease;
+  -webkit-transition: background-color 0.3s ease, -webkit-backdrop-filter 0.3s ease;
 }
 .header--scrolled {
-  background-color: rgba(17, 17, 17, 0.8);
+  background-color: rgba(17, 17, 17, 0.5);
   backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 .header__container {
   display: flex;
@@ -22,12 +25,17 @@
   margin: 0 auto;
 }
 .header__logo img {
-  height: 32px;
+  height: 50px;
 }
 .header__payments {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  border-radius: 27px;
+  border: 1px solid #d3d3d3;
+  padding: 0px 13px;
+  position: relative;
+  top: -3px;
 }
 .header__payments-label {
   font-size: 0.85rem;
@@ -37,6 +45,7 @@
   display: flex;
   list-style: none;
   gap: 0.4rem;
+  margin: 8px 0px;
 }
 .header__payments-item img {
   height: 20px;
@@ -45,6 +54,8 @@
   display: flex;
   align-items: center;
   gap: 1.2rem;
+  top: -4px;
+  position: relative;
 }
 .header__link {
   color: #fff;
@@ -66,3 +77,27 @@
 }
 
 /* Header (end) */
+/* ==========================================================================
+   BLOCK: Header (Responsive - max-width: 768px)
+   Descripción: Reglas de adaptación del bloque `header` para pantallas pequeñas.
+   Metodología BEM aplicada.
+   ========================================================================== */
+@media (max-width: 768px) {
+  .header__container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .header__nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .header__payments {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .header__cart-btn {
+    align-self: flex-end;
+  }
+}

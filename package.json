@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "build": "webpack --config webpack.config.js",
-    "dev": "concurrently \"webpack --config webpack.config.js --watch\" \"nodemon server.js\""
+    "dev": "concurrently \"webpack --config webpack.dev.js --watch\" \"nodemon server.js\""
   },
   "keywords": [
     "shopify",
@@ -20,7 +20,9 @@
     "liquidjs": "^10.20.1"
   },
   "devDependencies": {
+    "@fortawesome/fontawesome-free": "^7.0.0",
     "concurrently": "^9.2.0",
+    "copy-webpack-plugin": "^13.0.0",
     "css-loader": "^6.11.0",
     "mini-css-extract-plugin": "^2.9.2",
     "nodemon": "^3.1.10",

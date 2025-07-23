@@ -1,0 +1,21 @@
+{% comment %}D:\enviromentDev\Proyects\node\22\TestGradiW\src\sections\top-bar.liquid{% endcomment %}
+<div class="top-bar">
+    <!-- Marquee container - handles the animation -->
+    <div class="top-bar__marquee">
+        <!-- Content wrapper - contains repeated text elements -->
+        <div class="top-bar__marquee-content">
+            <!-- Loop creates 8 instances of the message for smooth animation -->
+            {% for i in (1..8) %}
+                <!-- Main text element -->
+                <span class="top-bar__marquee-item">FREE SHIPPING FOR ORDERS OVER $100</span>
+
+                <!-- Decorative dollar sign icon -->
+                <div class="star">
+                    <div class="star__shape"></div>
+                </div>
+                {% comment %}<div class="diamond-star"></div>{% endcomment %}
+                {% comment %}<span class="top-bar__marquee-icon">$</span>{% endcomment %}
+            {% endfor %}
+        </div>
+    </div>
+</div>

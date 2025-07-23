@@ -5,12 +5,15 @@
     position: sticky;
     top: 0;
     z-index: 1000;
-    background-color: #111;
+    background-color: #232323;
     transition: background-color 0.3s ease;
+    // Esto es para Safari, que requiere su propio prefijo
+    -webkit-transition: background-color 0.3s ease, -webkit-backdrop-filter 0.3s ease;
 
     &--scrolled {
-        background-color: rgba(17, 17, 17, 0.8); // transparencia activada al scroll
-    backdrop-filter: blur(8px); // patrón moderno con glass effect
+        background-color: rgba(17, 17, 17, 0.5); // fondo semi-transparente
+        backdrop-filter: blur(8px);              // glass effect moderno
+        -webkit-backdrop-filter: blur(8px);      // soporte Safari
     }
 
     &__container {
@@ -23,13 +26,18 @@
     }
 
     &__logo img {
-        height: 32px;
+        height: 50px;
     }
 
     &__payments {
         display: flex;
         align-items: center;
         gap: 0.5rem;
+        border-radius: 27px;
+        border: 1px solid #d3d3d3;
+        padding: 0px 13px;
+        position: relative;
+        top: -3px;
 
         &-label {
             font-size: 0.85rem;
@@ -40,6 +48,7 @@
             display: flex;
             list-style: none;
             gap: 0.4rem;
+            margin: 8px 0px;
         }
 
         &-item img {
@@ -51,6 +60,8 @@
         display: flex;
         align-items: center;
         gap: 1.2rem;
+        top: -4px;
+        position: relative;
     }
 
     &__link {
@@ -76,3 +87,40 @@
     }
 }
 /* Header (end) */
+
+/* ==========================================================================
+   BLOCK: Header (Responsive - max-width: 768px)
+   Descripción: Reglas de adaptación del bloque `header` para pantallas pequeñas.
+   Metodología BEM aplicada.
+   ========================================================================== */
+@media (max-width: 768px) {
+
+    // Elemento: header__container
+    // Comportamiento: cambia de fila única a columna para mejor stacking en mobile
+    .header__container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    // Elemento: header__nav
+    // Comportamiento: los enlaces de navegación se apilan en vertical
+    .header__nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    // Elemento: header__payments
+    // Comportamiento: íconos y texto se muestran uno debajo del otro
+    .header__payments {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    // Elemento: header__cart-btn
+    // Comportamiento: botón de carrito se alinea a la derecha dentro del nuevo flow
+    .header__cart-btn {
+        align-self: flex-end;
+    }
+}
