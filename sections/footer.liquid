@@ -1,69 +1,126 @@
 {% comment %}D:\enviromentDev\Proyects\node\22\TestGradiW\src\sections\footer.liquid{% endcomment %}
-
 <footer class="footer">
-    <div class="footer__container">
+    <div class="footer--row-descktop">
+        <div class="footer__container">
 
-        <div class="footer__row--top">
-            <div class="footer__column footer__column--left">
-                <div class="footer__logo">
-                    <img src="{{ settings['footer'].settings.logo_footer }}" alt="{{ settings['footer'].settings.logo_text }}">
-                </div>
-            </div>
-
-            <!-- Center Column -->
-            <div class="footer__column footer__column--center">
-                <!-- Primary Navigation (links_top) - Horizontal -->
-                <nav class="footer__nav footer__nav--primary">
-                    {% for link in settings['footer'].settings.links_top %}
-                        <a class="footer__link" href="{{ link.url }}">{{ link.label | upcase }}</a>
-                    {% endfor %}
-                </nav>
-
-                <!-- Secondary Navigation (links_bottom) - Horizontal -->
-                <nav class="footer__nav footer__nav--secondary">
-                    {% for link in settings['footer'].settings.links_botton %}
-                        <a class="footer__link footer__link--secondary" href="{{ link.url }}">{{ link.label | upcase }}</a>
-                    {% endfor %}
-                </nav>
-            </div>
-
-            <div class="footer__column footer__column--right">
-                <form class="footer__newsletter">
-                    <label for="newsletter-email" class="footer__newsletter-label">Subscribe and receive drop notifications</label>
-                    <div class="footer__newsletter-input-group">
-                        <input id="newsletter-email" class="footer__input" type="email" placeholder="Enter Email" />
-                        <button class="footer__button" type="submit">→</button>
+            <div class="footer__row--top">
+                <div class="footer__column footer__column--left">
+                    <div class="footer__logo">
+                        <img src="{{ settings['footer'].settings.logo_footer }}"
+                             alt="{{ settings['footer'].settings.logo_text }}">
                     </div>
-                </form>
-            </div>
-        </div>
+                </div>
 
-        <div class="footer__row--bottom">
-            <div class="footer__column footer__column--left">
-                <p class="footer__copyright">&copy; {{ "now" | date: "%Y" }}, Shuffle.store Operated by</p>
-                <p class="footer__copyright">Studio Plaid. Need help?</p>
-                <p class="footer__copyright">Email support@shuffle.store</p>
-            </div>
+                <!-- Center Column -->
+                <div class="footer__column footer__column--center">
+                    <!-- Primary Navigation (links_top) - Horizontal -->
+                    <nav class="footer__nav footer__nav--primary">
+                        {% for link in settings['footer'].settings.links_top %}
+                            <a class="footer__link" href="{{ link.url }}">{{ link.label | upcase }}</a>
+                        {% endfor %}
+                    </nav>
 
-            <div class="footer__column footer__column--center--row-2">
-                <p class="footer__crypto-text">We Accept all major cards, PayPal & crypto</p>
-                <ul class="footer__payments-list">
-                    <li class="footer__payments-item"><i class="fa-brands fa-bitcoin"></i></li>
-                    <li class="footer__payments-item"><i class="fa-brands fa-ethereum"></i></li>
-                    <li class="footer__payments-item"><i class="fab fa-ltc"></i></li>
-                    <li class="footer__payments-item"><i class="fa-brands fa-dai"></i></li>
-                    <li class="footer__payments-item"><i class="fa-brands fa-usdc"></i></li>
-                </ul>
-            </div>
+                    <!-- Secondary Navigation (links_bottom) - Horizontal -->
+                    <nav class="footer__nav footer__nav--secondary">
+                        {% for link in settings['footer'].settings.links_botton %}
+                            <a class="footer__link footer__link--secondary"
+                               href="{{ link.url }}">{{ link.label | upcase }}</a>
+                        {% endfor %}
+                    </nav>
+                </div>
 
-            <div class="footer__column footer__column--right">
-                <div class="footer__social-text">
-                    <a class="footer__social-link" href="#">Facebook</a>
-                    <a class="footer__social-link" href="#">X(TWITTER)</a>
-                    <a class="footer__social-link" href="#">Instagram</a>
+                <div class="footer__column footer__column--right">
+                    <form class="footer__newsletter">
+                        <label for="newsletter-email" class="footer__newsletter-label">Subscribe and receive drop
+                            notifications</label>
+                        <div class="footer__newsletter-input-group">
+                            <input id="newsletter-email" class="footer__input" type="email" placeholder="Enter Email"/>
+                            <button class="footer__button" type="submit">→</button>
+                        </div>
+                    </form>
                 </div>
             </div>
+
+            <div class="footer__row--bottom">
+                <div class="footer__column footer__column--left">
+                    <p class="footer__copyright">&copy; {{ "now" | date: "%Y" }}, Shuffle.store Operated by</p>
+                    <p class="footer__copyright">Studio Plaid. Need help?</p>
+                    <p class="footer__copyright">Email support@shuffle.store</p>
+                </div>
+
+                <div class="footer__column footer__column--center--row-2">
+                    <p class="footer__crypto-text">We Accept all major cards, PayPal & crypto</p>
+                    <ul class="footer__payments-list">
+                        <li class="footer__payments-item"><i class="fa-brands fa-bitcoin"></i></li>
+                        <li class="footer__payments-item"><i class="fa-brands fa-ethereum"></i></li>
+                        <li class="footer__payments-item"><i class="fab fa-ltc"></i></li>
+                        <li class="footer__payments-item"><i class="fa-brands fa-dai"></i></li>
+                        <li class="footer__payments-item"><i class="fa-brands fa-usdc"></i></li>
+                    </ul>
+                </div>
+
+                <div class="footer__column footer__column--right">
+                    <div class="footer__social-text">
+                        <a class="footer__social-link" href="#">Facebook</a>
+                        <a class="footer__social-link" href="#">X(TWITTER)</a>
+                        <a class="footer__social-link" href="#">Instagram</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="footer--row-movil">
+        <nav class="footer__mobile-nav">
+            {% for link in settings['footer'].settings.links_top %}
+                <a class="footer__link footer__mobile-link" href="{{ link.url }}">{{ link.label | upcase }}</a>
+            {% endfor %}
+        </nav>
+
+        <nav class="footer__mobile-nav-secondary">
+            {% for link in settings['footer'].settings.links_botton %}
+                <a class="footer__link footer__link--secondary footer__mobile-link-secondary"
+                   href="{{ link.url }}">{{ link.label | upcase }}</a>
+            {% endfor %}
+        </nav>
+
+        <div class="footer__mobile-payments">
+            <p>We accept all major cards, PayPal & crypto</p>
+            <ul class="footer__mobile-payments-icons">
+                <li><i class="fa-brands fa-bitcoin"></i></li>
+                <li><i class="fa-brands fa-ethereum"></i></li>
+                <li><i class="fab fa-ltc"></i></li>
+                <li><i class="fa-brands fa-dai"></i></li>
+                <li><i class="fa-brands fa-usdc"></i></li>
+            </ul>
         </div>
 
+        <form class="footer__mobile-newsletter">
+            <label for="newsletter-mobile-email">Subscribe and receive drop notifications</label>
+            <div class="footer__mobile-newsletter-group">
+                <input type="email" id="newsletter-mobile-email" placeholder="Enter Email">
+                <button type="submit">→</button>
+            </div>
+        </form>
+
+        <div class="footer__mobile__row--logo-social">
+            <div class="footer__mobile-logo">
+                <div class="footer__logo">
+                    <img src="{{ settings['footer'].settings.logo_footer }}"
+                         alt="{{ settings['footer'].settings.logo_text }}">
+                </div>
+            </div>
+
+            <div class="footer__mobile-social">
+                <a href="#">FACEBOOK</a>
+                <a href="#">X(TWITTER)</a>
+                <a href="#">INSTAGRAM</a>
+            </div>
+        </div>
+
+        <div class="footer__mobile-legal">
+            <p>© {{ "now" | date: "%Y" }}, Shuffle.store Operated by Studio Plaid.</p>
+            <p>Need help? Email support@shuffle.store</p>
+        </div>
     </div>
 </footer>

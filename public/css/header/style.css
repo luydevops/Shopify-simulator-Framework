@@ -181,7 +181,7 @@
     grid-template-rows: auto 1fr; /* Row-2 se expande */
   }
   .header__container--mobile--row-1 {
-    display: flex;
+    display: contents;
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
@@ -194,7 +194,7 @@
     position: absolute;
     width: 100%;
     left: 0;
-    top: 102px;
+    top: 86px;
     z-index: 9;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   }
@@ -227,7 +227,8 @@
     display: flex;
     justify-content: center;
     gap: 1rem;
-    margin-top: 0.5rem;
+    margin-top: 1rem;
+    padding: 0px;
   }
   .header__payments--mobile .header__payments-label {
     text-align: center;
