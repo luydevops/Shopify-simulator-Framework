@@ -1,3 +1,4 @@
+// D:\enviromentDev\Proyects\node\22\TestGradiW\src\server.js
 const express = require('express');
 const { Liquid } = require('liquidjs');
 const path = require('path');

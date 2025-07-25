@@ -1,0 +1,242 @@
+/*!****************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[0].use[3]!./src/scss/header/style.scss ***!
+  \****************************************************************************************************************************************************************************************/
+@charset "UTF-8";
+/* Header (begin) */
+.header {
+  position: sticky;
+  top: 39px;
+  z-index: 1000;
+  background-color: #232323;
+  transition: background-color 0.3s ease;
+  -webkit-transition: background-color 0.3s ease, -webkit-backdrop-filter 0.3s ease;
+  /* ==========================================================================
+     NUEVO: Contenedores desktop/mobile
+     Descripción: Alternancia entre versiones usando modificadores BEM
+     ========================================================================== */
+  /* ==========================================================================
+     NUEVO: Elementos específicos de móvil
+     Metodología: Extiende estilos base cuando es posible
+     ========================================================================== */
+  /* ==========================================================================
+     Estilos existentes (se mantienen intactos)
+     ========================================================================== */
+}
+
+.header--scrolled {
+  background-color: rgba(17, 17, 17, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header__container--desktop {
+  display: flex;
+}
+
+.header__container--mobile {
+  display: none;
+}
+
+.header__menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.header__mobile-nav {
+  display: none;
+  flex-direction: column;
+  padding: 0 2rem 1rem;
+  background-color: rgba(35, 35, 35, 0.98);
+}
+
+.header__mobile-nav.is-open {
+  display: flex;
+}
+
+.header__payments--mobile {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.header__logo img {
+  height: 50px;
+}
+
+.header__payments {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 27px;
+  border: 1px solid #d3d3d3;
+  padding: 0px 13px;
+  position: relative;
+  top: -3px;
+}
+
+@media (max-width: 768px) {
+  .header__payments {
+    display: none;
+  }
+}
+.header__payments-label {
+  font-size: 0.85rem;
+  color: #fff;
+}
+
+.header__payments-list {
+  display: flex;
+  list-style: none;
+  gap: 0.4rem;
+  margin: 8px 0px;
+}
+
+.header__payments-item img {
+  height: 20px;
+}
+
+.header__nav {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  top: -4px;
+  position: relative;
+}
+
+.header__link {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.header__link:hover {
+  color: #aaa;
+}
+
+.header__cart-btn {
+  background: #9a4aff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.4rem 0.6rem;
+  cursor: pointer;
+}
+
+.header__cart-btn img {
+  height: 20px;
+}
+
+/* Header (end) */
+/* ==========================================================================
+   BLOCK: Header (Responsive - max-width: 768px)
+   Descripción: Reglas de adaptación para pantallas pequeñas.
+   Cambios:
+   - Se reemplazan los estilos existentes por alternancia desktop/mobile
+   ========================================================================== */
+@media (max-width: 768px) {
+  .header {
+    /* ==========================================================================
+       NUEVO: Alternancia entre versiones
+       Comportamiento: Oculta desktop y muestra móvil
+       ========================================================================== */
+    /* ==========================================================================
+       NUEVO: Estilos específicos para móvil
+       ========================================================================== */
+    /* ==========================================================================
+       Estilos existentes modificados para móvil
+       ========================================================================== */
+  }
+  .header__container {
+    /* ==========================================================================
+       NUEVO: Fila superior (hamburguesa + logo + carrito)
+       ========================================================================== */
+    /* ==========================================================================
+       NUEVO: Fila del menú desplegable
+       ========================================================================== */
+  }
+  .header__container--desktop {
+    display: none;
+  }
+  .header__container--mobile {
+    display: flex;
+    grid-template-rows: auto 0fr; /* Row-1: altura automática, Row-2: inicialmente colapsada */
+    width: 92%;
+    transition: grid-template-rows 0.3s ease;
+    overflow: hidden; /* Para animación suave */
+    /* Cuando el menú está abierto */
+  }
+  .header__container--mobile.is-open {
+    grid-template-rows: auto 1fr; /* Row-2 se expande */
+  }
+  .header__container--mobile--row-1 {
+    display: contents;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    position: relative;
+    z-index: 10;
+  }
+  .header__container--mobile--row-2 {
+    max-height: 0;
+    transition: max-height 0.3s ease-out;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 86px;
+    z-index: 9;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  }
+  .header__container--mobile--row-2.is-open {
+    max-height: 500px; /* Ajusta este valor según tu contenido */
+  }
+  .header__menu-btn {
+    display: block;
+  }
+  .header__mobile-nav {
+    padding: 1rem;
+    display: none;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .header__mobile-nav .header__link {
+    padding: 0.75rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+  }
+  .header__mobile-nav .header__link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  .header__payments--mobile {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .header__payments--mobile .header__payments-list {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    padding: 0px;
+  }
+  .header__payments--mobile .header__payments-label {
+    text-align: center;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  .header__cart-btn {
+    padding: 0.5rem 0.8rem;
+    font-size: 1rem;
+  }
+}

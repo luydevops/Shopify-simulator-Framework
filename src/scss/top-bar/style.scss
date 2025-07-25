@@ -1,0 +1,136 @@
+//D:\enviromentDev\Proyects\node\22\TestGradiW\src\src\scss\top-bar\style.scss
+/* top-bar (begin) */
+.top-bar {
+  background-color: #7b2cfa;
+  color: #fff;
+  padding: 8px 0;
+  overflow: hidden;
+  width: 100%;
+  position: fixed;
+  z-index: 1000;
+
+  /* Element: Marquee container
+     Handles the horizontal scrolling animation */
+  &__marquee {
+    display: flex;
+    white-space: nowrap;
+    will-change: transform;
+    animation: marquee 13s linear infinite;
+  }
+
+  /* Element: Marquee content wrapper
+     Contains all repeated text elements */
+  &__marquee-content {
+    display: flex;
+    align-items: center;
+  }
+
+  /* Element: Marquee item
+     Individual text elements in the marquee */
+  &__marquee-item {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    margin: 0 15px;
+    text-transform: uppercase;
+    font-weight: 600;
+
+    /* Modifier: Desktop font size */
+    @media (min-width: 768px) {
+      font-size: 14px;
+    }
+  }
+
+  /* Element: Marquee icon
+     Decorative dollar sign between messages */
+  &__marquee-icon {
+    color: #ff0;
+    margin: 0 5px;
+  }
+}
+
+.star {
+  position: relative;
+  width: 48px;
+  height: 48px;
+
+  /* Element: Main star shape */
+  &__shape {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    /* Create the diamond shape */
+    clip-path: polygon(
+                    50% 0%,    /* top center */
+                    100% 50%,   /* right center */
+                    50% 100%,   /* bottom center */
+                    0% 50%      /* left center */
+    );
+
+    /* Purple color matching your SVG */
+    background-color: #A78BFA;
+
+    /* Add rotation to match the SVG orientation */
+    transform: rotate(45deg);
+
+    /* Optional animation for hover effect */
+    transition: transform 0.3s ease;
+  }
+
+  /* Hover effect - optional */
+  &:hover &__shape {
+    transform: rotate(135deg) scale(1.1);
+  }
+}
+
+
+/* diamond-star (begin) */
+.diamond-star {
+  width: 20px;
+  height: 20px;
+  background: #a78bfa;
+  clip-path: polygon(
+                  50% 0%,   /* top point */
+                  65% 35%,  /* top-right */
+                  100% 50%, /* right */
+                  65% 65%,  /* bottom-right */
+                  50% 100%, /* bottom */
+                  35% 65%,  /* bottom-left */
+                  0% 50%,   /* left */
+                  35% 35%   /* top-left */
+  );
+  transition: transform 0.3s;
+  margin: 0.1rem;
+
+  /* Hover effect - optional */
+  &:hover {
+    transform: rotate(135deg) scale(1.1);
+  }
+}
+/* diamond-star (end) */
+
+/* Animation: Marquee scroll effect
+   Creates infinite horizontal scrolling */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+/* top-bar (end) */
+
+/* ==========================================================================
+BLOCK: Top Bar (Responsive - max-width: 768px)
+Descripción: Ajustes para el top bar en dispositivos móviles
+========================================================================== */
+@media (max-width: 768px) {
+  .top-bar {
+    /* Element: Marquee item mobile adjustments */
+    &__marquee-item {
+      margin: 0 10px;
+    }
+  }
+}

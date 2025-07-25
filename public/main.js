@@ -9,13 +9,13 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/app.js":
-/*!********************!*\
-  !*** ./src/app.js ***!
-  \********************/
+/***/ "./src/js/app.js":
+/*!***********************!*\
+  !*** ./src/js/app.js ***!
+  \***********************/
 /***/ (() => {
 
-eval("console.log('Gradiweb is online!!!');\n\n\n//# sourceURL=webpack://shopify-simulator/./src/app.js?");
+eval("// D:\\enviromentDev\\Proyects\\node\\22\\TestGradiW\\src\\src\\app.js\r\nconsole.log('Gradiweb is online!!!');\r\n\r\n\r\n\n\n//# sourceURL=webpack://shopify-simulator/./src/js/app.js?");
 
 /***/ })
 
@@ -26,7 +26,7 @@ eval("console.log('Gradiweb is online!!!');\n\n\n//# sourceURL=webpack://shopify
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
 /******/ 	var __webpack_exports__ = {};
-/******/ 	__webpack_modules__["./src/app.js"]();
+/******/ 	__webpack_modules__["./src/js/app.js"]();
 /******/ 	
 /******/ })()
 ;

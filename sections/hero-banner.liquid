@@ -1,0 +1,53 @@
+{% comment %}D:\enviromentDev\Proyects\node\22\TestGradiW\src\sections\hero-banner.liquid{% endcomment %}
+<!-- Hero Banner Section - Main container for the hero banner component -->
+<section class="hero">
+    <!-- Hero container - Wrapper for image and content -->
+    <div class="hero__container">
+        <!-- Hero image with responsive sources - handles different screen sizes -->
+        {% if settings['hero-banner'].settings.background_image %}
+            <picture class="hero__image">
+                <!-- Large desktop image source -->
+                <source media="(min-width: 1200px)" srcset="{{ settings['hero-banner'].settings.background_image | img_url: '2000x' }}">
+                <!-- Tablet/medium desktop image source -->
+                <source media="(min-width: 768px)" srcset="{{ settings['hero-banner'].settings.background_image | img_url: '1200x' }}">
+                <!-- Mobile/default image -->
+                <img src="{{ settings['hero-banner'].settings.background_image | img_url: '800x' }}" alt="{{ settings['hero-banner'].settings.alt_image }}" class="hero__img">
+            </picture>
+        {% endif %}
+
+        <!-- Hero content - Contains title and CTA button -->
+        <div class="hero__content">
+            <!-- Main heading - Dynamically populated from settings -->
+            <h1 class="hero__title">{{ settings['hero-banner'].settings.background_image.marquee_text }}</h1>
+            <!-- Call-to-action button - URL and text from settings -->
+            <a href="{{ settings['hero-banner'].settings.button_link }}" class="hero__button button--primary">
+                {{ settings['hero-banner'].settings.button_text }}
+            </a>
+        </div>
+    </div>
+
+    <!-- Hero Marquee Block - Independent scrolling banner section -->
+    <div class="hero__marquee">
+        <!-- Marquee Wrapper - Handles overflow and positioning -->
+        <div class="marquee">
+            <!-- Marquee Content - Direct child for animation
+                 Uses inline-flex for horizontal item alignment -->
+            <div class="marquee__content">
+                <!-- Marquee Items Loop - 8 instances for seamless looping -->
+                {% for i in (1..8) %}
+                    <!-- Marquee Text Element - Main display text
+                         Uses Squada One font at 7rem size -->
+                    <span class="marquee__item">SHUFFLE ESSENTIALS</span>
+
+                    <!-- Marquee Separator Container - Holds decorative element
+                         Adds spacing between text items -->
+                    <div class="marquee__separator">
+                        <!-- Diamond Icon - Pure CSS diamond shape
+                             Purple color (#a78bfa) with hover rotation -->
+                        <div class="diamond-star"></div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>

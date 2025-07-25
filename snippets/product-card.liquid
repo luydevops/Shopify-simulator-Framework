@@ -1,11 +1,57 @@
+{% comment %}D:\enviromentDev\Proyects\node\22\TestGradiW\src\snippets\product-card.liquid{% endcomment %}
 <div class="product-card">
-  <h3>{{ product.title }}</h3>
-  <p>Price: ${{ product.price }}</p>
-  {% if product.tags %}
-    <ul>
-      {% for tag in product.tags %}
-        <li>{{ tag }}</li>
-      {% endfor %}
-    </ul>
-  {% endif %}
+    <!--
+      PRODUCT IMAGE
+      Main product visual with responsive sizing
+    -->
+    <div class="product-card__image-container">
+        <img src="{{ product.image | default: 'placeholder-image.jpg' }}"
+             alt="{{ product.title | escape }}"
+             class="product-card__image"
+             loading="lazy">
+    </div>
+
+    <!--
+      PRODUCT INFO WRAPPER
+      Contains text elements (title, price)
+    -->
+    <div class="product-card__content">
+        <div class="product-card__info">
+            <!-- PRODUCT TITLE - Truncated to 2 lines max -->
+            <h3 class="product-card__title">{{ product.title }}</h3>
+
+            <!--
+              PRODUCT PRICE
+              Formatted with currency and original price if on sale
+            -->
+            <div class="product-card__pricing">
+                <p class="product-card__price">${{ product.price | money_without_currency }} USD</p>
+                {% if product.compare_at_price > product.price %}
+                    <p class="product-card__original-price">${{ product.compare_at_price | money_without_currency }} USD</p>
+                {% endif %}
+            </div>
+
+            <!--
+              PRODUCT TAGS
+              Only displayed if tags exist
+              Uses inline list for better semantics
+            -->
+            {% comment %}{% if product.tags.size > 0 %}{% endcomment %}
+            {% comment %}<ul class="product-card__tag-list">{% endcomment %}
+            {% comment %}{% for tag in product.tags limit: 3 %}{% endcomment %}
+            {% comment %}<li class="product-card__tag">{% endcomment %}
+            {% comment %}{{ tag }}{% endcomment %}
+            {% comment %}</li>{% endcomment %}
+            {% comment %}{% endfor %}{% endcomment %}
+            {% comment %}</ul>{% endcomment %}
+            {% comment %}{% endif %}{% endcomment %}
+        </div>
+
+        <div class="product-card__buy">
+            <button class="product-card-btn" aria-label="View cart">
+                <i class="fas fa-cart-shopping" aria-hidden="true" style="color: white; font-size: 24px;"></i>
+                {% comment %}<i class="fa-regular fa-cart-shopping"></i>{% endcomment %}
+            </button>
+        </div>
+    </div>
 </div>

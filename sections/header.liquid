@@ -1,0 +1,73 @@
+{% comment %}D:\enviromentDev\Proyects\node\22\TestGradiW\src\sections\header.liquid{% endcomment %}
+<!-- Header block -->
+<header class="header">
+    <!-- Versión Desktop (existente) -->
+    <div class="header__container header__container--desktop">
+        <!-- Left column: Logo -->
+        <div class="header__logo">
+            <img src="/assets/logo-white.png" alt="Shuffle Store logo">
+        </div>
+
+        <!-- Center column: Payment methods -->
+        <div class="header__payments">
+            <span class="header__payments-label">We Accept</span>
+            <ul class="header__payments-list">
+                <li class="header__payments-item" title="Bitcoin"><i class="fa-brands fa-bitcoin"
+                                                                     style="color: #e99c28;"></i></li>
+                <li class="header__payments-item" title="Ethereum"><i class="fa-brands fa-ethereum"
+                                                                      style="color: #627eea;"></i></li>
+                <li class="header__payments-item" title="Litecoin"><i class="fab fa-ltc"></i></li>
+                <li class="header__payments-item" title="Dai"><i class="fab fa-dai"></i></li>
+                <li class="header__payments-item" title="USDC"><i class="fab fa-usdc"></i></li>
+            </ul>
+        </div>
+
+        <!-- Right column: Links and cart -->
+        <div class="header__nav">
+            <a href="#products" class="header__link">All Products</a>
+            <a href="#collections" class="header__link">Collections</a>
+            <button class="header__cart-btn" aria-label="View cart">
+                <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Versión Móvil (nueva) -->
+    <div class="header__container header__container--mobile">
+        <div class="header__container--mobile--row-1">
+            <!-- Hamburguesa + Logo + Carrito -->
+            <button class="header__menu-btn" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <div class="header__logo">
+                <img src="/assets/logo-white.png" alt="Shuffle Store logo">
+            </div>
+
+            <button class="header__cart-btn" aria-label="View cart">
+                <i class="fas fa-shopping-cart"></i>
+            </button>
+        </div>
+        <div class="header__container--mobile--row-2">
+            <!-- Menú desplegable -->
+            <nav class="header__mobile-nav" id="mobileNav">
+                <a href="#products" class="header__link">All Products</a>
+                <a href="#collections" class="header__link">Collections</a>
+
+                <!-- Sección de pagos móvil -->
+                <div class="header__payments--mobile">
+                    <span class="header__payments-label">We Accept</span>
+                    <ul class="header__payments-list">
+                        <li class="header__payments-item" title="Bitcoin"><i class="fa-brands fa-bitcoin"
+                                                                             style="color: #e99c28;"></i></li>
+                        <li class="header__payments-item" title="Ethereum"><i class="fa-brands fa-ethereum"
+                                                                              style="color: #627eea;"></i></li>
+                        <li class="header__payments-item" title="Litecoin"><i class="fab fa-ltc"></i></li>
+                        <li class="header__payments-item" title="Dai"><i class="fab fa-dai"></i></li>
+                        <li class="header__payments-item" title="USDC"><i class="fab fa-usdc"></i></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>

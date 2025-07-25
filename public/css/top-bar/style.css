@@ -1,0 +1,120 @@
+/*!*****************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[0].use[3]!./src/scss/top-bar/style.scss ***!
+  \*****************************************************************************************************************************************************************************************/
+@charset "UTF-8";
+/* top-bar (begin) */
+.top-bar {
+  background-color: #7b2cfa;
+  color: #fff;
+  padding: 8px 0;
+  overflow: hidden;
+  width: 100%;
+  position: fixed;
+  z-index: 1000;
+  /* Element: Marquee container
+     Handles the horizontal scrolling animation */
+  /* Element: Marquee content wrapper
+     Contains all repeated text elements */
+  /* Element: Marquee item
+     Individual text elements in the marquee */
+  /* Element: Marquee icon
+     Decorative dollar sign between messages */
+}
+
+.top-bar__marquee {
+  display: flex;
+  white-space: nowrap;
+  will-change: transform;
+  animation: marquee 13s linear infinite;
+}
+
+.top-bar__marquee-content {
+  display: flex;
+  align-items: center;
+}
+
+.top-bar__marquee-item {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  margin: 0 15px;
+  text-transform: uppercase;
+  font-weight: 600;
+  /* Modifier: Desktop font size */
+}
+
+@media (min-width: 768px) {
+  .top-bar__marquee-item {
+    font-size: 14px;
+  }
+}
+.top-bar__marquee-icon {
+  color: #ff0;
+  margin: 0 5px;
+}
+
+.star {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  /* Element: Main star shape */
+  /* Hover effect - optional */
+}
+
+.star__shape {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  /* Create the diamond shape */
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  /* Purple color matching your SVG */
+  background-color: #A78BFA;
+  /* Add rotation to match the SVG orientation */
+  transform: rotate(45deg);
+  /* Optional animation for hover effect */
+  transition: transform 0.3s ease;
+}
+
+.star:hover .star__shape {
+  transform: rotate(135deg) scale(1.1);
+}
+
+/* diamond-star (begin) */
+.diamond-star {
+  width: 20px;
+  height: 20px;
+  background: #a78bfa;
+  clip-path: polygon(50% 0%, 65% 35%, 100% 50%, 65% 65%, 50% 100%, 35% 65%, 0% 50%, 35% 35%);
+  transition: transform 0.3s;
+  margin: 0.1rem;
+  /* Hover effect - optional */
+}
+
+.diamond-star:hover {
+  transform: rotate(135deg) scale(1.1);
+}
+
+/* diamond-star (end) */
+/* Animation: Marquee scroll effect
+   Creates infinite horizontal scrolling */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+/* top-bar (end) */
+/* ==========================================================================
+BLOCK: Top Bar (Responsive - max-width: 768px)
+Descripción: Ajustes para el top bar en dispositivos móviles
+========================================================================== */
+@media (max-width: 768px) {
+  .top-bar {
+    /* Element: Marquee item mobile adjustments */
+  }
+  .top-bar__marquee-item {
+    margin: 0 10px;
+  }
+}

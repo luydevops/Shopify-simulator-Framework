@@ -10,21 +10,25 @@
     "hero-banner": {
       "type": "hero-banner",
       "settings": {
-        "button_text": "Shop Now",
-        "button_link": "/collections/all",
+        "button_text": "View the collection",
+        "button_link": "#collections",
         "marquee_text": "Free Shipping on Orders Over $50",
-        "background_image": "hero_banner_img.avif"
+        "background_image": "/assets/hero_banner_img.avif",
+        "alt_image": "Chuffle Collection"
       }
     },
     "footer": {
       "type": "footer",
       "settings": {
         "logo_text": "MyShopify",
-        "links": [
+        "logo_footer": "/assets/logo-footer-white.png",
+        "links_top": [
           { "label": "Home", "url": "/" },
           { "label": "Cart", "url": "/cart" },
           { "label": "All Products", "url": "/collections/all" },
-          { "label": "Collections", "url": "/collections" },
+          { "label": "Collections", "url": "/collections" }
+        ],
+        "links_botton": [
           { "label": "Refund Policy", "url": "/refund-policy" },
           { "label": "Privacy Policy", "url": "/privacy-policy" },
           { "label": "Terms of Service", "url": "/terms-of-service" }

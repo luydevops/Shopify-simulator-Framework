@@ -1,0 +1,74 @@
+//D:\enviromentDev\Proyects\node\22\TestGradiW\src\src\scss\index.scss
+
+// ============================================================================
+// VENDOR: Font Awesome
+// Descripción: Importación de los estilos base y variantes de íconos
+// del paquete @fortawesome/fontawesome-free.
+// Estos estilos son requeridos para usar los íconos como elementos visuales
+// en bloques o componentes BEM.
+// ============================================================================
+
+@import '~@fortawesome/fontawesome-free/css/all.min.css'; // // Base Font Awesome (minima)
+//@import '~@fortawesome/fontawesome-free/scss/fontawesome'; // Base Font Awesome (core)
+//@import '~@fortawesome/fontawesome-free/scss/solid';       // Íconos de tipo sólido (fa-solid)
+//@import '~@fortawesome/fontawesome-free/scss/brands';      // Íconos de marcas (fa-brands)
+//@import '~@fortawesome/fontawesome-free/scss/regular';     // Íconos regulares (fa-regular)
+
+
+// ============================================================================
+// GLOBAL: Body
+// Descripción: Estilos base para el elemento <body> que aplica a toda la página.
+// Este bloque se utiliza para establecer fuentes, color de fondo y márgenes
+// globales. No representa un bloque BEM como tal, pero actúa como contenedor base.
+// ============================================================================
+body {
+  background-color: #232323; // El color de fondo gris
+  background-image: radial-gradient(circle at 1px 1px, rgb(35 35 35) 1px, #f7f7f7 0), radial-gradient(circle at 1px 1px, rgb(35 35 35) 1px, #414040 0);
+  background-size: 2px 2px; // El tamaño de cada "celda" donde se repite el gradiente
+  background-position: 0 0, 1px 1px; // Desplazamos un poco el segundo gradiente para mayor aleatoriedad
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+
+  main.container {
+    max-width: 1400px;
+    justify-content: center;
+    text-align: center;
+    align-content: center;
+    margin: 0px auto;
+  }
+}
+/* container (begin) */
+/* ==========================================================================
+RESPONSIVE ADJUSTMENTS
+========================================================================== */
+@media (max-width: 1400px) {
+  main.container {
+    max-width: 1200px;
+  }
+}
+
+@media (max-width: 1200px) {
+  main.container {
+    max-width: 1000px;
+  }
+}
+
+@media (max-width: 1024px) {
+  main.container {
+    max-width: 800px;
+  }
+}
+
+@media (max-width: 768px) {
+  main.container {
+    max-width: none;
+  }
+}
+
+@media (max-width: 480px) {
+  main.container {
+    max-width: none;
+  }
+}
+/* container (end) */

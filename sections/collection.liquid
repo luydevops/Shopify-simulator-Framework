@@ -1,0 +1,44 @@
+{% comment %}D:\enviromentDev\Proyects\node\22\TestGradiW\src\sections\collection.liquid{% endcomment %}
+<section class="collections-section" id="collections">
+    <!-- SECTION HEADER -->
+    <h2 class="collections-section__title"><div class="diamond-star"></div>{{ settings.collection_title | default: 'LATEST COLLECTION' }}<div class="diamond-star"></div></h2>
+
+    <!-- COLECCIONES QUE CUMPLEN CON EL FILTRO DE FECHA -->
+    {% assign filtered_collections = "" | split: "" %}
+    {% assign cutoff_date = '2025-01-01' %}
+
+    {% for collection in collections %}
+        {% if collection.created_at >= cutoff_date %}
+            {% assign filtered_collections = filtered_collections | push: collection %}
+        {% endif %}
+    {% endfor %}
+
+    <!-- MOSAICO DE COLECCIONES -->
+    <div class="collections-mosaic">
+        <!-- PRIMERA FILA - 2 IMÁGENES -->
+        <div class="collections-mosaic__row collections-mosaic__row--first">
+            {% for collection in filtered_collections limit: 2 %}
+                <div class="collection-tile collection-tile--wide">
+                    <img src="{{ collection.image }}"
+                         alt="{{ collection.title }}"
+                         class="collection-tile__image"
+                         loading="lazy">
+                    <h3 class="collection-tile__title">{{ collection.title }}</h3>
+                </div>
+            {% endfor %}
+        </div>
+
+        <!-- SEGUNDA FILA - 1 IMAGEN CENTRADA -->
+        {% if filtered_collections.size >= 3 %}
+            <div class="collections-mosaic__row collections-mosaic__row--second">
+                <div class="collection-tile collection-tile--single">
+                    <img src="{{ filtered_collections[2].image }}"
+                         alt="{{ filtered_collections[2].title }}"
+                         class="collection-tile__image"
+                         loading="lazy">
+                    <h3 class="collection-tile__title">{{ filtered_collections[2].title }}</h3>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</section>

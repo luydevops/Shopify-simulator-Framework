@@ -1,13 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/styles.css">
-  <title>Shopify Simulator | Gradiweb</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/icons-cusmton/style.css">
+    <link rel="stylesheet" href="/css/top-bar/style.css">
+    <link rel="stylesheet" href="/css/header/style.css">
+    <link rel="stylesheet" href="/css/hero-banner/style.css">
+    <link rel="stylesheet" href="/css/products/style.css">
+    <link rel="stylesheet" href="/css/collection/style.css">
+    <link rel="stylesheet" href="/css/footer/style.css">
+    <title>Shopify Simulator | Gradiweb</title>
 </head>
 <body>
-  {% include 'featured-products.liquid' %}
-  <script src="/main.js"></script>
+    {% include 'top-bar.liquid' %}
+
+    <main class="container">
+        {% include 'header.liquid' %}
+        {% include 'hero-banner.liquid' %}
+        {% include 'products.liquid' %}
+        {% include 'collection.liquid' %}
+        {% include 'footer.liquid' %}
+    </main>
+
+
+    <script src="/main.js"></script>
+    <script src="/js/header/index.js"></script>
+    <script src="/js/hero-banner/index.js"></script>
+    <script src="/js/products/index.js"></script>
+    <script src="/js/collection/index.js"></script>
+    <script src="/js/footer/index.js"></script>
 </body>
 </html>
