@@ -1,0 +1,165 @@
+// D:\enviromentDev\Proyects\node\22\TestGradiW\src\src\scss\collection\style.scss
+/* collections (begin) */
+@import url('https://fonts.googleapis.com/css2?family=Fragment+Mono:ital@0;1&family=Squada+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Squada+One&display=swap');
+
+/* BLOCK: Collections section
+   Main container for collections */
+.collections-section {
+  //padding: 4rem 2rem;
+  //max-width: 1200px;
+  margin: 0 auto;
+
+  /* Element: Section title
+     Main heading for the section */
+  &__title {
+    display: flex; /* Flexbox para alinear elementos internos */
+    align-items: center; /* Centrado vertical perfecto */
+    justify-content: center; /* Centrado horizontal */
+    gap: 16px; /* Espacio consistente entre elementos */
+
+    font-family: "Squada One", sans-serif;
+    font-size: 7rem;
+    font-weight: 700;
+    margin: 3rem 0px;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative; /* Para posicionamiento absoluto de hijos */
+  }
+
+  .diamond-star{
+    width: 70px;
+    height: 70px;
+    margin: 0px 14px;
+  }
+}
+
+/* BLOCK: Collections mosaic
+   Container for the 2+1 image grid layout */
+.collections-mosaic {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  /* Element: Mosaic row
+     Container for each row of collections */
+  &__row {
+    display: grid;
+    gap: 2rem;
+
+    /* Modifier: First row
+       Contains 2 equal-width columns */
+    &--first {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Modifier: Second row
+       Contains 1 centered column */
+    &--second {
+      grid-template-columns: minmax(auto, 1400px);
+      justify-content: center;
+    }
+  }
+}
+
+/* BLOCK: Collection tile
+   Individual collection item in mosaic layout */
+.collection-tile {
+  border-radius: 6px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  position: relative;
+
+  /* Modifier: Wide tile
+     Used for first row items (2-column layout) */
+  &--wide {
+    aspect-ratio: 16/9;
+  }
+
+  /* Modifier: Single tile
+     Used for second row item (centered) */
+  &--single {
+    aspect-ratio: 16/7;
+  }
+
+  /* Element: Collection image
+     Main visual with hover effect */
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+
+  /* Element: Collection title
+     Name of the collection */
+  &__title {
+    position: absolute;
+    bottom: 1rem;
+    left: 0;
+    right: 0;
+    font-family: "Fragment Mono", monospace;
+    font-size: 1.25rem;
+    font-weight: 100;
+    text-align: left;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    padding: 0 1rem;
+    margin: 0;
+  }
+
+  /* Hover state - elevates card and zooms image */
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+
+    .collection-tile__image {
+      transform: scale(1.05);
+    }
+  }
+}
+
+/* ==========================================================================
+BLOCK: Collections (Responsive)
+========================================================================== */
+
+@media (max-width: 1450px) {
+  .collections-mosaic {
+    &__row {
+      margin: 0px 12px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .collections-mosaic {
+    &__row {
+      /* First row becomes single column on mobile */
+      &--first {
+        grid-template-columns: 1fr;
+      }
+
+      /* Second row takes full width on mobile */
+      &--second {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .collections-section__title {
+    font-size: 1.5rem;
+  }
+
+  /* Adjust tile aspect ratios for mobile */
+  .collection-tile {
+    &--wide, &--single {
+      aspect-ratio: 16/9;
+    }
+  }
+}
+
+/* collections (end) */

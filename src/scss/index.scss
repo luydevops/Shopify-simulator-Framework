@@ -29,11 +29,46 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-}
 
-
-main{
-  .container{
-
+  main.container {
+    max-width: 1400px;
+    justify-content: center;
+    text-align: center;
+    align-content: center;
+    margin: 0px auto;
   }
 }
+/* container (begin) */
+/* ==========================================================================
+RESPONSIVE ADJUSTMENTS
+========================================================================== */
+@media (max-width: 1400px) {
+  main.container {
+    max-width: 1200px;
+  }
+}
+
+@media (max-width: 1200px) {
+  main.container {
+    max-width: 1000px;
+  }
+}
+
+@media (max-width: 1024px) {
+  main.container {
+    max-width: 800px;
+  }
+}
+
+@media (max-width: 768px) {
+  main.container {
+    max-width: none;
+  }
+}
+
+@media (max-width: 480px) {
+  main.container {
+    max-width: none;
+  }
+}
+/* container (end) */

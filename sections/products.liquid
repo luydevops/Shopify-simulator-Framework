@@ -1,33 +1,28 @@
 {% comment %}D:\enviromentDev\Proyects\node\22\TestGradiW\src\sections\products.liquid{% endcomment %}
-<section class="products-section" id="products">
-    <!-- PRODUCT GRID/CAROUSEL -->
+<!-- Main products section container -->
+<div id="products" class="products-section">
+    <!-- Products grid container - handles layout -->
     <div class="products-grid">
-        <!--
-          INITIAL PRODUCTS (visible by default)
-          Using limit: 4 to show first 4 products
-        -->
+        <!-- Loop displays first 4 products -->
         {% for product in products limit: 4 %}
+            <!-- Individual product card component -->
             {% render 'product-card', product: product %}
         {% endfor %}
 
-        <!--
-          HIDDEN PRODUCTS (revealed on interaction)
-          Using offset: 4 to skip first 4 products
-        -->
+        <!-- Hidden products container - revealed on click -->
         <div class="products-grid__hidden" id="more-products">
+            <!-- Loop displays remaining products (offset 4) -->
             {% for product in products offset: 4 %}
+                <!-- Individual product card component -->
                 {% render 'product-card', product: product %}
             {% endfor %}
         </div>
 
-        <!--
-          VIEW ALL TOGGLE
-          Toggles visibility of hidden products
-        -->
+        <!-- View all button - toggles hidden products -->
         <button class="products-grid__view-all"
                 aria-expanded="false"
                 aria-controls="more-products">
-            View All Products
+            View All
         </button>
     </div>
-</section>
+</div>

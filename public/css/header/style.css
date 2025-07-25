@@ -10,6 +10,17 @@
   background-color: #232323;
   transition: background-color 0.3s ease;
   -webkit-transition: background-color 0.3s ease, -webkit-backdrop-filter 0.3s ease;
+  /* ==========================================================================
+     NUEVO: Contenedores desktop/mobile
+     Descripción: Alternancia entre versiones usando modificadores BEM
+     ========================================================================== */
+  /* ==========================================================================
+     NUEVO: Elementos específicos de móvil
+     Metodología: Extiende estilos base cuando es posible
+     ========================================================================== */
+  /* ==========================================================================
+     Estilos existentes (se mantienen intactos)
+     ========================================================================== */
 }
 
 .header--scrolled {
@@ -27,6 +38,40 @@
   margin: 0 auto;
 }
 
+.header__container--desktop {
+  display: flex;
+}
+
+.header__container--mobile {
+  display: none;
+}
+
+.header__menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.header__mobile-nav {
+  display: none;
+  flex-direction: column;
+  padding: 0 2rem 1rem;
+  background-color: rgba(35, 35, 35, 0.98);
+}
+
+.header__mobile-nav.is-open {
+  display: flex;
+}
+
+.header__payments--mobile {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
 .header__logo img {
   height: 50px;
 }
@@ -42,6 +87,11 @@
   top: -3px;
 }
 
+@media (max-width: 768px) {
+  .header__payments {
+    display: none;
+  }
+}
 .header__payments-label {
   font-size: 0.85rem;
   color: #fff;
@@ -91,25 +141,101 @@
 /* Header (end) */
 /* ==========================================================================
    BLOCK: Header (Responsive - max-width: 768px)
-   Descripción: Reglas de adaptación del bloque `header` para pantallas pequeñas.
-   Metodología BEM aplicada.
+   Descripción: Reglas de adaptación para pantallas pequeñas.
+   Cambios:
+   - Se reemplazan los estilos existentes por alternancia desktop/mobile
    ========================================================================== */
 @media (max-width: 768px) {
-  .header__container {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
+  .header {
+    /* ==========================================================================
+       NUEVO: Alternancia entre versiones
+       Comportamiento: Oculta desktop y muestra móvil
+       ========================================================================== */
+    /* ==========================================================================
+       NUEVO: Estilos específicos para móvil
+       ========================================================================== */
+    /* ==========================================================================
+       Estilos existentes modificados para móvil
+       ========================================================================== */
   }
-  .header__nav {
+  .header__container {
+    /* ==========================================================================
+       NUEVO: Fila superior (hamburguesa + logo + carrito)
+       ========================================================================== */
+    /* ==========================================================================
+       NUEVO: Fila del menú desplegable
+       ========================================================================== */
+  }
+  .header__container--desktop {
+    display: none;
+  }
+  .header__container--mobile {
+    display: flex;
+    grid-template-rows: auto 0fr; /* Row-1: altura automática, Row-2: inicialmente colapsada */
+    width: 92%;
+    transition: grid-template-rows 0.3s ease;
+    overflow: hidden; /* Para animación suave */
+    /* Cuando el menú está abierto */
+  }
+  .header__container--mobile.is-open {
+    grid-template-rows: auto 1fr; /* Row-2 se expande */
+  }
+  .header__container--mobile--row-1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    position: relative;
+    z-index: 10;
+  }
+  .header__container--mobile--row-2 {
+    max-height: 0;
+    transition: max-height 0.3s ease-out;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 102px;
+    z-index: 9;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  }
+  .header__container--mobile--row-2.is-open {
+    max-height: 500px; /* Ajusta este valor según tu contenido */
+  }
+  .header__menu-btn {
+    display: block;
+  }
+  .header__mobile-nav {
+    padding: 1rem;
+    display: none;
     flex-direction: column;
-    align-items: flex-start;
     gap: 0.5rem;
   }
-  .header__payments {
-    flex-direction: column;
-    align-items: flex-start;
+  .header__mobile-nav .header__link {
+    padding: 0.75rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+  }
+  .header__mobile-nav .header__link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  .header__payments--mobile {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .header__payments--mobile .header__payments-list {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+  .header__payments--mobile .header__payments-label {
+    text-align: center;
+    display: block;
+    margin-bottom: 0.5rem;
   }
   .header__cart-btn {
-    align-self: flex-end;
+    padding: 0.5rem 0.8rem;
+    font-size: 1rem;
   }
 }

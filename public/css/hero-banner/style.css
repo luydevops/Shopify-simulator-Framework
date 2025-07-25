@@ -12,6 +12,7 @@
   width: 100%;
   display: flex;
   flex-direction: column; /* Organiza los elementos en columna */
+  margin-bottom: 44px;
   /* Element: Main container for hero content and image
      Sets dimensions and centers content vertically */
   /* Element: Responsive image container
@@ -73,12 +74,29 @@
   margin-bottom: 0;
 }
 
+.hero__button {
+  color: white;
+  font-family: "Squada One", sans-serif;
+  text-decoration: none;
+  font-size: 2em;
+  background-color: #7b2cfa;
+  padding: 12px 12px;
+  position: absolute;
+  left: -634px;
+  top: 318px;
+  border-radius: 4px;
+}
+
 /* BLOCK: Marquee - Scrolling text animation
    ========================================================================== */
 .marquee {
   display: flex;
   overflow: hidden;
   white-space: nowrap; /* Prevents text wrapping */
+  width: 100vw;
+  position: absolute;
+  left: -253px;
+  height: 110px;
   /* Element: Content wrapper for animation
      Contains repeated text items and separators */
   /* Element: Individual text items in marquee
@@ -128,9 +146,44 @@
 }
 /* hero-banner (end) */
 /* ==========================================================================
-RESPONSIVE: Hero Banner (max-width: 768px)
+RESPONSIVE: Hero Banner
 Adjustments for tablet and mobile devices
 ========================================================================== */
+@media (max-width: 1888px) {
+  .marquee {
+    left: -158px;
+  }
+}
+@media (max-width: 1700px) {
+  .marquee {
+    left: -138px;
+  }
+}
+@media (max-width: 1600px) {
+  .marquee {
+    left: -4%;
+  }
+}
+@media (max-width: 1500px) {
+  .marquee {
+    left: 0%;
+  }
+}
+@media (max-width: 1400px) {
+  .marquee {
+    left: -15px;
+  }
+}
+@media (max-width: 1200px) {
+  .marquee {
+    left: -10px;
+  }
+}
+@media (max-width: 1024px) {
+  .marquee {
+    left: 1px;
+  }
+}
 @media (max-width: 768px) {
   .hero {
     /* Element: Container adjustments for mobile */
@@ -143,12 +196,17 @@ Adjustments for tablet and mobile devices
   .hero__marquee {
     padding: 1rem 0;
   }
+  .hero__image img {
+    position: relative;
+    left: -605px;
+  }
   /* Element: Marquee items smaller on mobile */
   .marquee {
+    left: 0;
     /* Element: Diamond star smaller on mobile */
   }
   .marquee__item {
-    font-size: 1.5rem;
+    font-size: 7rem;
     margin: 0 1rem;
   }
   .marquee__separator .diamond-star {

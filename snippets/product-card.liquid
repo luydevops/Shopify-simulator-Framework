@@ -1,17 +1,4 @@
 {% comment %}D:\enviromentDev\Proyects\node\22\TestGradiW\src\snippets\product-card.liquid{% endcomment %}
-{% comment %}<div class="product-card">{% endcomment %}
-  {% comment %}<h3>{{ product.title }}</h3>{% endcomment %}
-  {% comment %}<p>Price: ${{ product.price }}</p>{% endcomment %}
-  {% comment %}{% if product.tags %}{% endcomment %}
-    {% comment %}<ul>{% endcomment %}
-      {% comment %}{% for tag in product.tags %}{% endcomment %}
-        {% comment %}<li>{{ tag }}</li>{% endcomment %}
-      {% comment %}{% endfor %}{% endcomment %}
-    {% comment %}</ul>{% endcomment %}
-  {% comment %}{% endif %}{% endcomment %}
-{% comment %}</div>{% endcomment %}
-
-
 <div class="product-card">
     <!--
       PRODUCT IMAGE
@@ -28,34 +15,43 @@
       PRODUCT INFO WRAPPER
       Contains text elements (title, price)
     -->
-    <div class="product-card__info">
-        <!-- PRODUCT TITLE - Truncated to 2 lines max -->
-        <h3 class="product-card__title">{{ product.title }}</h3>
+    <div class="product-card__content">
+        <div class="product-card__info">
+            <!-- PRODUCT TITLE - Truncated to 2 lines max -->
+            <h3 class="product-card__title">{{ product.title }}</h3>
 
-        <!--
-          PRODUCT PRICE
-          Formatted with currency and original price if on sale
-        -->
-        <div class="product-card__pricing">
-            <p class="product-card__price">${{ product.price | money_without_currency }}</p>
-            {% if product.compare_at_price > product.price %}
-                <p class="product-card__original-price">${{ product.compare_at_price | money_without_currency }}</p>
-            {% endif %}
+            <!--
+              PRODUCT PRICE
+              Formatted with currency and original price if on sale
+            -->
+            <div class="product-card__pricing">
+                <p class="product-card__price">${{ product.price | money_without_currency }} USD</p>
+                {% if product.compare_at_price > product.price %}
+                    <p class="product-card__original-price">${{ product.compare_at_price | money_without_currency }} USD</p>
+                {% endif %}
+            </div>
+
+            <!--
+              PRODUCT TAGS
+              Only displayed if tags exist
+              Uses inline list for better semantics
+            -->
+            {% comment %}{% if product.tags.size > 0 %}{% endcomment %}
+            {% comment %}<ul class="product-card__tag-list">{% endcomment %}
+            {% comment %}{% for tag in product.tags limit: 3 %}{% endcomment %}
+            {% comment %}<li class="product-card__tag">{% endcomment %}
+            {% comment %}{{ tag }}{% endcomment %}
+            {% comment %}</li>{% endcomment %}
+            {% comment %}{% endfor %}{% endcomment %}
+            {% comment %}</ul>{% endcomment %}
+            {% comment %}{% endif %}{% endcomment %}
         </div>
 
-        <!--
-          PRODUCT TAGS
-          Only displayed if tags exist
-          Uses inline list for better semantics
-        -->
-        {% if product.tags.size > 0 %}
-            <ul class="product-card__tag-list">
-                {% for tag in product.tags limit: 3 %}
-                    <li class="product-card__tag">
-                        {{ tag }}
-                    </li>
-                {% endfor %}
-            </ul>
-        {% endif %}
+        <div class="product-card__buy">
+            <button class="product-card-btn" aria-label="View cart">
+                <i class="fas fa-cart-shopping" aria-hidden="true" style="color: white; font-size: 24px;"></i>
+                {% comment %}<i class="fa-regular fa-cart-shopping"></i>{% endcomment %}
+            </button>
+        </div>
     </div>
 </div>

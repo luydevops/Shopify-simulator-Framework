@@ -1,130 +1,215 @@
 //D:\enviromentDev\Proyects\node\22\TestGradiW\src\src\scss\products\style.scss
+@import url('https://fonts.googleapis.com/css2?family=Fragment+Mono:ital@0;1&family=Squada+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Squada+One&display=swap');
+
 /* products (begin) */
-.product-carousel {
+.products-section {
+  padding: 4rem 2rem;
+  max-width: 1440px;
+  margin: 0 auto;
+
+  &__header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  &__title {
+    font-size: 2.5rem;
+    color: #333;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+  }
+}
+/* products-grid (begin) */
+.products-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  padding: 2rem 0;
+  gap: 2rem;
   position: relative;
 
+  /* Element: Hidden products container
+     Initially hidden, shows on view-all click or scroll */
+  &__hidden {
+    display: none;
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    animation: fadeIn 0.5s ease-out;
+  }
+
   /* Element: View All button
-     Triggers the expansion of hidden products */
+     Toggles visibility of hidden products */
   &__view-all {
     grid-column: 1 / -1;
+    justify-self: center;
     background: #7b2cfa;
     color: white;
-    padding: 12px 24px;
-    cursor: pointer;
     border: none;
-    border-radius: 4px;
+    padding: 1rem 2.5rem;
+    font-size: 2rem;
     font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    border-radius: 4px;
+    cursor: pointer;
     transition: all 0.3s ease;
+    margin-top: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: "Squada One", sans-serif;
 
-    /* Hover effect - subtle scale and shadow */
+    /* Modifier: Hover state
+       Adds subtle lift and shadow */
     &:hover {
-      transform: scale(1.02);
-      box-shadow: 0 4px 8px rgba(123, 44, 250, 0.3);
+      background: #6a1df0;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(123, 44, 250, 0.3);
+    }
+
+    /* Modifier: Expanded state
+       Darker background when products are visible */
+    &[aria-expanded="true"] {
+      background: #333;
     }
   }
 }
 
-/* BLOCK: Product card
-   Contains all product elements */
+/* Product card styles */
 .product-card {
-  border: 1px solid #e1e1e1;
+  //background: white;
   border-radius: 8px;
   overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
   position: relative;
 
-  /* Element: Product image
-     Main visual with hover effect */
-  &__image {
-    width: 100%;
-    height: 240px;
-    object-fit: cover;
-    transition: opacity 0.3s ease, transform 0.5s ease;
-    display: block;
-  }
-
-  /* Element: Product name
-     Title with typography styles */
-  &__name {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    font-size: 16px;
-    font-weight: 600;
-    margin: 12px 16px 4px;
-    color: #333;
-  }
-
-  /* Element: Product price
-     Price display with emphasis */
-  &__price {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    font-size: 18px;
-    font-weight: 700;
-    color: #7b2cfa;
-    margin: 0 16px 12px;
-  }
-
-  /* Element: Tags container
-     Wrapper for product tags */
-  &__tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin: 0 16px 16px;
-  }
-
-  /* Hover state - elevates card and enhances image */
   &:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
 
-    /* Image zoom effect on hover */
-    .product-card__image {
-      opacity: 0.9;
-      transform: scale(1.03);
-    }
+  &__image-container {
+    overflow: hidden;
+    height: 0;
+    padding-bottom: 125%; /* 4:5 aspect ratio */
+    position: relative;
+  }
+
+  &__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  &__content{
+    display: flex;
+  }
+
+  &__info {
+    text-align: justify;
+    justify-content: left;
+    width: 87%;
+  }
+
+  &__title {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+    line-height: 1.4;
+  }
+
+  &__pricing {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    margin-bottom: 0.75rem;
+  }
+
+  &__price {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #ffffff;
+    margin: 0px;
+  }
+
+  &__original-price {
+    font-size: 0.9rem;
+    color: #999;
+    text-decoration: line-through;
+  }
+
+  &__tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+
+  &__tag {
+    background: #f3f3f3;
+    color: #666;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+
+  &-btn{
+    background: #9a4aff;
+    border: none;
+    border-radius: 30px;
+    padding: 1rem 0.8rem;
+    cursor: pointer;
+    margin: 10px 0px;
   }
 }
 
-/* BLOCK: Tag
-   Individual product tag/category */
-.tag {
-  background: #f3f3f3;
-  color: #666;
-  padding: 4px 8px;
-  border-radius: 4px;
-  font-size: 12px;
-  font-weight: 500;
+/* Animation: fadeIn
+   Slides products up with fade effect */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ==========================================================================
-BLOCK: Product Carousel (Responsive)
+RESPONSIVE ADJUSTMENTS
 ========================================================================== */
 @media (max-width: 1024px) {
-  .product-carousel {
+  .products-grid {
     grid-template-columns: repeat(3, 1fr);
+
+    &__hidden {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 }
 
 @media (max-width: 768px) {
-  .product-carousel {
-    grid-template-columns: repeat(2, 1fr);
+  .products-grid {
+    grid-template-columns: repeat(1, 1fr);
 
-    /* Adjust image height on mobile */
-    .product-card__image {
-      height: 180px;
+    &__hidden {
+      grid-template-columns: repeat(1, 1fr);
     }
   }
 }
 
 @media (max-width: 480px) {
-  .product-carousel {
+  .products-grid {
     grid-template-columns: 1fr;
+
+    &__hidden {
+      grid-template-columns: 1fr;
+    }
   }
 }
 /* products (end) */

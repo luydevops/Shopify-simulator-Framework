@@ -23,4 +23,22 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         document.querySelector('#collections')?.scrollIntoView({ behavior: 'smooth' });
     });
+
+
+    const menuButton = document.querySelector('.header__menu-btn');
+    const mobileMenu = document.querySelector('.header__mobile-nav');
+
+    if (menuButton && mobileMenu) {
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('is-open');
+
+            // Cambiar icono de hamburguesa a X y viceversa
+            const icon = menuButton.querySelector('i');
+            if (mobileMenu.classList.contains('is-open')) {
+                icon.classList.replace('fa-bars', 'fa-times');
+            } else {
+                icon.classList.replace('fa-times', 'fa-bars');
+            }
+        });
+    }
 });

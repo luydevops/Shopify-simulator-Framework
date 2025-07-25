@@ -20,8 +20,8 @@
             <!-- Main heading - Dynamically populated from settings -->
             <h1 class="hero__title">{{ settings['hero-banner'].settings.background_image.marquee_text }}</h1>
             <!-- Call-to-action button - URL and text from settings -->
-            <a href="{{ settings.hero_button_url }}" class="hero__button button--primary">
-                {{ settings.hero_button_text }}
+            <a href="{{ settings['hero-banner'].settings.button_link }}" class="hero__button button--primary">
+                {{ settings['hero-banner'].settings.button_text }}
             </a>
         </div>
     </div>

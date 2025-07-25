@@ -18,6 +18,8 @@ module.exports = {
         'js/hero-banner/index': './src/js/hero-banner/index.js',
         'css/products/style': './src/scss/products/style.scss',
         'js/products/index': './src/js/products/index.js',
+        'css/collection/style': './src/scss/collection/style.scss',
+        'js/collection/index': './src/js/collection/index.js',
     },
     output: {
         path: path.resolve(__dirname, 'public'),
